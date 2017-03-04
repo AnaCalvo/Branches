@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let personDownloader = Downloader()
-        personDownloader.downloadJSON()
+        personDownloader.downloadPersons()
         
     }
 
