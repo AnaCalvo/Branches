@@ -13,8 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let downloader1 = Downloader()
-        downloader1.downloadJSON()
+        let personDownloader = Downloader()
+        personDownloader.downloadJSON()
         
     }
 
