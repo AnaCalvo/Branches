@@ -34,35 +34,3 @@ struct Person {
 }
 
 
-struct Downloader {
-    
-    func downloadPersons() {
-        
-        let url = URL(string: "https://uinames.com/api/?amount=25")
-        let request = URLRequest(url: url!)
-        
-        let session = URLSession.shared
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            guard
-                let data = data,
-                let json = try? JSONSerialization.jsonObject(with: data, options:[]),
-                let personsArray = json as? [JSONDictionary] else { return }
-            
-            for person in personsArray  {
-                
-                if let person = Person(json: person) {
-                    print(person.name)
-                }
-            }
-            
-        }
-        
-        task.resume()
-        
-        
-    }
-    
-}
-
