@@ -13,9 +13,9 @@ class PersonsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+         var persons: [Person]
         
-        let persons = Downloader()
-        persons.downloadPersons()
         
     }
 

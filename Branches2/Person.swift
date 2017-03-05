@@ -36,6 +36,8 @@ struct Person {
 
 struct Downloader {
     
+    let personsArray: [Person]?
+    
     func downloadPersons() {
         
         let url = URL(string: "https://uinames.com/api/?amount=25")
@@ -48,12 +50,13 @@ struct Downloader {
             guard
                 let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options:[]),
-                let personsArray = json as? [JSONDictionary] else { return }
+                let ArrayOfPersons = json as? [JSONDictionary] else { return }
             
-            for person in personsArray  {
+            for person in ArrayOfPersons  {
                 
                 if let person = Person(json: person) {
                     print(person.name)
+                  
                 }
             }
             
