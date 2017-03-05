@@ -45,16 +45,15 @@ struct Downloader {
         
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            if let data = data {
-                guard let json = try? JSONSerialization.jsonObject(with: data, options:[]) as! [JSONDictionary]
-                    else { return }
+            guard
+                let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options:[]),
+                let personsArray = json as? [JSONDictionary] else { return }
+            
+            for person in personsArray  {
                 
-                for person in json {
-                    if let person = Person(json: person) {
-                        
-                        print(person.name)
-                        
-                    }
+                if let person = Person(json: person) {
+                    print(person.name)
                 }
             }
             
@@ -67,19 +66,3 @@ struct Downloader {
     
 }
 
-
-/*
- 
- if let dictionary = json as? [String: Any] {
- 
- if let data = dictionary["data"] as? [[String: Any]] {
- 
- for object in data {
- let message = Message(json: object)
- 
- print(message?.message)
- }
- }
- }
- 
- */
