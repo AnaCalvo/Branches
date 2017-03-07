@@ -10,12 +10,12 @@ import UIKit
 
 class PersonsTableViewController: UITableViewController {
 
+    let downloaderInstance = Downloader()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-         var persons: [Person]
         
+        downloaderInstance.downloadPersons()
         
     }
 
@@ -28,17 +28,23 @@ class PersonsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return persons.count
+        return downloaderInstance.downloadedPersons.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 
-        cell.textLabel?.text = persons.name[indexPath.row]
+        cell.textLabel?.text = downloaderInstance.downloadedPersons[indexPath.row].name
 
         return cell
     }
+    
+    
+//    func refresh {
+//        let persons = downloaderInstance.downloadedPersons
+//        print(persons.count)
+//    }
 
 }
 

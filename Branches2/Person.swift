@@ -36,7 +36,7 @@ struct Person {
 
 struct Downloader {
     
-    let personsArray: [Person]?
+    var downloadedPersons: [Person] = []
     
     func downloadPersons() {
         
@@ -55,7 +55,8 @@ struct Downloader {
             for person in ArrayOfPersons  {
                 
                 if let person = Person(json: person) {
-                    print(person.name)
+                    //print(person.name)
+                    downloadedPersons.append(Person)
                   
                 }
             }
