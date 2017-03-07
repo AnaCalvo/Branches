@@ -41,10 +41,11 @@ class PersonsTableViewController: UITableViewController {
     }
     
     
-//    func refresh {
-//        let persons = downloaderInstance.downloadedPersons
-//        print(persons.count)
-//    }
+   
+    @IBAction func refresh(_ sender: UIBarButtonItem) {
+            tableView.reloadData()
+        }
+    
 
 }
 

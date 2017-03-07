@@ -34,7 +34,7 @@ struct Person {
 }
 
 
-struct Downloader {
+class Downloader {
     
     var downloadedPersons: [Person] = []
     
@@ -56,7 +56,7 @@ struct Downloader {
                 
                 if let person = Person(json: person) {
                     //print(person.name)
-                    downloadedPersons.append(Person)
+                    self.downloadedPersons.append(person)
                   
                 }
             }
