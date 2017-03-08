@@ -32,13 +32,7 @@
                             <outlet property="delegate" destination="Hq2-fM-bpO" id="5ga-Eh-U0B"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Persons" id="tgx-OF-PA4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="qXK-Gi-Rtv">
-                            <connections>
-                                <action selector="refresh:" destination="Hq2-fM-bpO" id="XnM-xx-vmw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Persons" id="tgx-OF-PA4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LL5-j7-MJB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

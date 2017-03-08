@@ -36,7 +36,13 @@ struct Person {
 
 class Downloader {
     
+    let delegate: PersonsTableViewController
+    
     var downloadedPersons: [Person] = []
+    
+    init(delegate: PersonsTableViewController) {
+        self.delegate = delegate
+    }
     
     func downloadPersons() {
         
@@ -61,6 +67,9 @@ class Downloader {
                 }
             }
             
+            self.delegate.refresh()
+            // Utilizamos self para referirnos a nuestro propio delegado.
+            // Esto tiene que estar dentro de task porque es un closure (lo veremos más adelante).
         }
         
         task.resume()
